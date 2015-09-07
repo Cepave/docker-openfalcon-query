@@ -8,12 +8,11 @@ ENV WORKDIR=/home/query PACKDIR=/package PACKFILE=falcon-query.tar.gz CONFIGDIR=
 VOLUME $CONFIGDIR $WORKDIR $PACKDIR
 
 # Install Open-Falcon Query Component
-COPY $CONFIGFILE graph_backends.txt $CONFIGDIR/
+COPY $CONFIGFILE $CONFIGDIR/
 COPY $PACKFILE $PACKDIR/
 
 WORKDIR /root
 COPY run.sh ./
-RUN chmod +x run.sh
 
 # Port
 EXPOSE 9966
