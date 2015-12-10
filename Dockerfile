@@ -7,6 +7,11 @@ ENV WORKDIR=/home/query PACKDIR=/package PACKFILE=falcon-query.tar.gz CONFIGDIR=
 # Volume 
 VOLUME $CONFIGDIR $WORKDIR $PACKDIR
 
+# Package
+RUN \
+  apt-get update &&\
+  apt-get install -y ca-certificates
+
 # Install Open-Falcon Query Component
 COPY $CONFIGFILE $CONFIGDIR/
 COPY $PACKFILE $PACKDIR/
